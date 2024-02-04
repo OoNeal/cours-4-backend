@@ -7,7 +7,6 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Category;
 use Faker\Factory;
 
@@ -17,14 +16,12 @@ use Faker\Factory;
 )]
 class AddCategoryToDatabaseCommand extends Command
 {
-    private $entityManager;
     private $faker;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct()
     {
         parent::__construct();
 
-        $this->entityManager = $entityManager;
         $this->faker = Factory::create(); // Initialise Faker
     }
 
@@ -38,13 +35,8 @@ class AddCategoryToDatabaseCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        // Utilise Faker pour générer des données aléatoires
         $category = new Category();
-        $category->setLibelle($this->faker->word); // Utilise une méthode de Faker pour générer un mot aléatoire
-        // Ajoute d'autres propriétés...
-
-        $this->entityManager->persist($category);
-        $this->entityManager->flush();
+        $category->setLibelle($this->faker->word);
 
         $io->success('Catégorie ajoutée avec succès.');
 

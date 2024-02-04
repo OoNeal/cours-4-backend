@@ -22,7 +22,7 @@ Listes des points attendu:
 Listes des points bonus
 - [x] La commande d'ajout de données utilise FakerPHP
 - [ ] Ajouter des test unitaire
-- [x] un dossier Githook, avec un precommit et prepush qui execute tout les tests
+- [ ] un dossier Githook, avec un precommit et prepush qui execute tout les tests
 
 Listes des point bonus si vous avez le projet sur github
 - [x] Ajouter une Github Action qui execute phpstan/phpcs/phpunit
