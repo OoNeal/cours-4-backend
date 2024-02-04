@@ -18,6 +18,10 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $libelle = null;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="category", orphanRemoval=true)
+     * @var Collection<int, Product>
+     */
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class)]
     private Collection $products;
 
