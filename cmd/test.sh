@@ -1,5 +1,5 @@
 # Installe les dépendances de développement
-composer install --dev
+composer install
 
 # Exécute PHPUnit pour les tests unitaires
 ./vendor/bin/phpunit
